@@ -1,4 +1,4 @@
-package Homework1_RemoveDuplicatesfromSortedArrayII_80;
+package Homework1_RemoveDuplicatesFromSortedArrayII_80;
 
 /**
  * Created by junjin on 6/5/17.

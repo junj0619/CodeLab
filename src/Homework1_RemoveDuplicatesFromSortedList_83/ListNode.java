@@ -1,4 +1,4 @@
-package Homework1_RemoveDuplicatesfromSortedList_83;
+package Homework1_RemoveDuplicatesFromSortedList_83;
 
 /**
  * Created by junjin on 6/5/17.
