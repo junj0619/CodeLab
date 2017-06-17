@@ -1,9 +1,7 @@
-package Homework1_RemoveDuplicatesFromSortedListII_82;
-
-import java.util.List;
+package Class2_ReverseLinkedListII_92;
 
 /**
- * Created by junjin on 6/9/17.
+ * Created by junjin on 6/12/17.
  */
 public class ListNode {
     int val;
