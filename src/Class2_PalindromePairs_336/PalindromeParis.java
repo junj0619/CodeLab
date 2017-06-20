@@ -32,6 +32,9 @@ import java.util.Map;
  * str2 = ""
  * [1,0] from first if
  * second if fail because str2.length = 0
+ *
+ * Time Complexity:
+ * Space Complexity: O(n)
  */
 public class PalindromeParis {
 
