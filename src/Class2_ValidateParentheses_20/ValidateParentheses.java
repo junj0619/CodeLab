@@ -28,7 +28,7 @@ import java.util.HashMap;
  * <p>
  * <p>
  * follow up 1: Ignore all other characters
- * follow up 2: Improve function extendability. Don't hard code brcate in the validation function
+ * follow up 2: Improve function extendability. Don't hard code brackets in the validation function
  */
 public class ValidateParentheses {
     public static void main(String[] args) {
@@ -40,7 +40,7 @@ public class ValidateParentheses {
 //        String pExt = "axaxaxa{[a(ssss)daaaaa]d}";
         String pExt = "asd}])";
 
-        HashMap<Character, Character> map = new HashMap<>(); //Key: open ,value: close
+        HashMap<Character, Character> map = new HashMap<>(); //Key: open  brackets, value: close  brackets
 
         map.put('{', '}');
         map.put('(', ')');
@@ -102,7 +102,7 @@ public class ValidateParentheses {
             if (map.containsKey(ch[i])) {
                 stack.push(map.get(ch[i]));
             } else if (map.containsValue(ch[i])) {
-                if (stack.isEmpty() || ch[i] != stack.pop()) { //Check stack is empty for more close input
+                if (stack.isEmpty() || ch[i] != stack.pop()) { //Check stack is empty for more close brackets input
                     return false;                              // Such as : ])}
                 }
             } else {      // Skip all other characters for follow up 1
