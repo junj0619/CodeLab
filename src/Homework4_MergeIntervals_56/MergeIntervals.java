@@ -10,9 +10,9 @@
 public class Solution {
     public List<Interval> merge(List<Interval> intervals) {
         //Step 1: Sort Intervals by start
-        //Step 2: Compare current Intervals end with next Intervals start
-        //   2.1: If curr.end >= next.start => can merg => updated the end to next.end
-        //   2.2: Else insert current Intervals into the result list
+        //Step 2: Compare previous Intervals end with current Intervals start
+        //   2.1: If pre.end >= cur.start && pre.end < cur.end => can merg => updated the end to cur.end
+        //   2.2: Else insert previous Intervals into the result list
         //Step 3: Insert last intervals into the result
         
         if(intervals.size() <= 1) return intervals;
