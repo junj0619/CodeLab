@@ -46,7 +46,7 @@ public class MergeIntervals {
         if (intervals.size() == 0) return intervals;
 
         List<Interval> list = new LinkedList<>();
-        intervals.sort((a, b) -> (a.start - b.end)); //sort interval base on start element;
+        intervals.sort((a, b) -> (a.start - b.start)); //sort interval base on start element;
 
         /*Initial Start,End */
         int start = intervals.get(0).start;
