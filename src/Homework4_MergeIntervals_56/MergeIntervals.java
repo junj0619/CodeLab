@@ -7,6 +7,29 @@
  *     Interval(int s, int e) { start = s; end = e; }
  * }
  */
+/*
+ * Input : [[1,5]]
+ * Output: [[1,5]]
+ *
+ * Input :[]
+ * Output:[]
+ *
+ * Input : [[1,2], [2,3],[3,4]]
+ * Output: [[1,4]]
+ *
+ * Input : [[2,3], [1,5]]
+ * Output: [[1,5]]
+ *
+ * Input : [[2,2], [2,2]]
+ * Output: [[2,2]]
+ *
+ *  Time Complexity: O(nlog(n)) sorting intervals cost(nlog(n)) + iteriate sorted intervals o(n) => nlog(n)
+ * Space Complexity: O(n) for output result list.
+ *
+ * Submission Details:
+ * Runtime: 96 ms
+ * Beats: 16.96 %
+ **/
 public class Solution {
     public List<Interval> merge(List<Interval> intervals) {
         //Step 1: Sort Intervals by start
