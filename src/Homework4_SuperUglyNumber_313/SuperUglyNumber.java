@@ -30,7 +30,7 @@ public class Solution {
                     primesUsedCount[j]++; 
                 }
                 
-                ugly.set(i ,Math.min(ugly.get(i), ugly.get(primesUsedCount[j]) * primes[j]));
+                ugly.set(i, Math.min(ugly.get(i), ugly.get(primesUsedCount[j]) * primes[j]));
             }
         }
     
