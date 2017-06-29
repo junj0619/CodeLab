@@ -19,9 +19,9 @@ public class Solution {
         for (int i = 1; i < n; i++) {
             int lastNumber = ugly.get(i - 1);
             
-            while (ugly.get(p2) * 2 <= lastNumber) p2++;
-            while (ugly.get(p3) * 3 <= lastNumber) p3++;
-            while (ugly.get(p5) * 5 <= lastNumber) p5++;
+            if (ugly.get(p2) * 2 == lastNumber) p2++;
+            if (ugly.get(p3) * 3 == lastNumber) p3++;
+            if (ugly.get(p5) * 5 == lastNumber) p5++;
             
             ugly.add(Math.min(Math.min(ugly.get(p2) * 2, ugly.get(p3) * 3), ugly.get(p5) * 5));            
         }
