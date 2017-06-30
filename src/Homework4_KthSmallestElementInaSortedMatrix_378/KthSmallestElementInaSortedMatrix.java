@@ -6,6 +6,9 @@
 *
 *   return 13.
 *
+* Input: [[1,4],[2,5]] , k =2
+* Output: 1 By using MaxHeap Incorrect !!!
+* Expected : 2
 *
 * Beats : 22.19%
 * Runtime: 50 ms
