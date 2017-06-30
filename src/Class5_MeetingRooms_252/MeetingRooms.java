@@ -19,6 +19,9 @@
  *
  * Step 1: Sort Input intervals
  * Step 2: Compare pre meeting end with next meeting start. If (pre.end > next.start) return false;
+ *
+ * beats: 50.85%
+ * Runtime: 12 ms
  */
  
 public class MeetingRooms {
