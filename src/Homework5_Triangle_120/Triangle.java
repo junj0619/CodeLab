@@ -12,7 +12,7 @@
 * Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
 *
 *
-* =====================================
+* ====================================================
 * Translate input to Solution Tree
 *          2
 *       /     \
@@ -21,7 +21,9 @@
 *    6     5      7
 *   /  \  /  \   /  \
 *  4    1      8     3
-* =====================================
+* 
+* so the conduction rule is min(Left, Right) + itself
+* ===================================================
 * 2
 * 3, 4
 * 6, 5, 7
