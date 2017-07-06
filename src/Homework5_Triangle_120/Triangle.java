@@ -37,6 +37,9 @@
 *  [ 4, 1, 8, 3 ]        |
 * ]                      |
 *
+* Time Complexity : O(n2) Scan each row and each col
+* Space Complexity: O(n2) 2D DP array
+*
 * Need to figure out how to use 1D DP array to store min path
 **/
 
