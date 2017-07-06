@@ -1,3 +1,13 @@
+/**
+*
+* One can reach Ith step in one of the two ways:
+* 1) Taking a single step from (i-1)th step
+* 2) Taking a step of 2 from (i-2)th step
+*
+* So conduction rule: dp[i] = dp[i - 1] + dp[i - 2];
+**/
+
+
 public class ClimbingStairs_DP {
     public int climbStairs(int n) {
         
