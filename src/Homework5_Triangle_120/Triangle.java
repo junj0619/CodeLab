@@ -37,6 +37,7 @@
 *  [ 4, 1, 8, 3 ]        |
 * ]                      |
 *
+* Need to figure out how to use 1D DP array to store min path
 **/
 
 public class Triangle {
