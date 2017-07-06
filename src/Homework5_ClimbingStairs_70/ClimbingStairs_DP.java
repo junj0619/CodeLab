@@ -5,6 +5,9 @@
 * 2) Taking a step of 2 from (i-2)th step
 *
 * So conduction rule: dp[i] = dp[i - 1] + dp[i - 2];
+*
+* Time complexity : O(n) Single loop upto n.
+* Space complexity : O(n). Dp array of size n is used.
 **/
 
 
