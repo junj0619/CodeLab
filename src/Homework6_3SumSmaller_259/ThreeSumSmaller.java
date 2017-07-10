@@ -19,6 +19,7 @@
 * 
 *  Time Complexity: Sorting Array O(nlogn) + Scan arrays with 3 pointers O(n2) = O(n2)
 * Space Complexity: O(1) only use 3 pointer3 + count and length variables
+*           Beats : 86.49%
 **/
 
 public class Solution {
