@@ -1,6 +1,6 @@
 public class Solution {
 
-//Not In - Place
+//Not In - Place beats:63.18%
 /*
 *   1, 2, 3           7, 4, 1
 *   4, 5, 6    ==>    8, 5, 2      put first row in last col
