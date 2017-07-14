@@ -21,7 +21,7 @@
 public class ResultType {
     public boolean isFullTree;
     public boolean isCompleteTree;
-    int maxDepth;
+    public int maxDepth;
     
     ResultType(boolean isFull, boolean isComplete, int maxDepth) {
           isFullTree = isFull;
