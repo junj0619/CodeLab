@@ -33,6 +33,41 @@ public class ResultType {
 
 public class Solution {
     public boolean ComplelteBinaryTree(TreeNode root) {
-
+        if(root == null) {
+            return true;
+        }        
+        return DFS(root).isCompleteTree;
+    }
+    
+    public ResultType DFS(TreeNode root) {
+        if(root == null) {
+            return new ResultType(true, true, 0);
+        }
+        
+        ResultType left = DFS(root.left);
+        ResultType right = DFS(root.right);
+        
+        if(left.maxDepth == right.maxDepth) {
+            if(left.isFullTree && right.isFullTree) {
+                return new ResultType(true, true, left.maxDepth + 1);
+            } else if(left.isFullTree && right.isCompleteTree) {
+                return new ResultType(false, true, left.maxDepth + 1);
+            } else {
+                return new ResultType(false, false, left.maxDepth + 1);
+            }            
+        }
+        
+        if(left.maxDepth == right.maxDepth - 1) {
+            if(left.isFullTree && right.isFullTree) {
+                return new ResultType(false, true, left.maxDepth + 1);
+            } else if(left.isCompleteTree && right.isFullTree) {
+                return new ResultType(false, true, left.maxDepth + 1);
+            } else {
+                return new ResultType(false, false, left.maxDepth + 1);
+            }
+        }
+        
+        //left.maxDepth - right.maxDepth >= 2
+        return new ResultType(false, false, 0);
     }
 }
