@@ -1,3 +1,10 @@
+/**
+* Beats: 74.78%
+* Use Trie Tree save word first. Then do BFS search.
+* If meet current char = '.' then search cross 0 to 25 under current TrieNode
+*
+**/
+
 public class WordDictionary {
 
     class TrieNode {
