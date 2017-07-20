@@ -79,7 +79,7 @@ public class WordDictionary {
                 
                 if(ch != '.') {
                     if(cur.containsKey(ch)) {
-                         if (cur.get(ch).isEnd() && index == word.length() - 1) {
+                         if (cur.get(ch).isEnd() && index == word.length() - 1) { //Need to revise why using cur.get(ch).isEnd. Inside of cur.isEnd
                              return true;
                          }   
                         queue.offer(cur.get(ch));
