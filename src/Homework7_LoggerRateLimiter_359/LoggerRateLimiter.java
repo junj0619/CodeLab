@@ -1,3 +1,13 @@
+/**
+* Design a logger system that receive stream of messages along with its timestamps, 
+* each message should be printed if and only if it is not printed in the last 10 seconds.
+*
+* Use HashMap<msg, timestamp> to check exist or not. If exist then check diff(timestamp).
+* if diff >= 10 then update timestamp return ture; else return false;
+* beats: 13.11%
+*
+**/
+
 public class Logger {
 
     /** Initialize your data structure here. */        
