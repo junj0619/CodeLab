@@ -10,6 +10,7 @@
 //  1) current remove char freq > 1, then freq--;
 //  2) current remove char freq = 1, then remove this key,pairs from Hashmap
 //
+//[e,c,e,b,a] k = 2. return 3 => ece;
 //Time complexity : as the two pointers keep moving forward, the time complexity will be O(n)
 //Space Complexity: as we use a hashmap to maintain the frequency, space complexity will be O(n)
 
