@@ -1,3 +1,18 @@
+//Use Two pointer + HashMap
+//Slow pointer pointing to start point of subString
+//Fast pointer pointing to end point of subString
+//HashMap maintain each char frequences
+//
+//Each time put new char into HashMap, check if map.size is greater than k
+//if yes means map contains more distinct char than K.
+//so remove from Slow pointer until meet map.size == k
+//The remove operation means two things:
+//  1) current remove char freq > 1, then freq--;
+//  2) current remove char freq = 1, then remove this key,pairs from Hashmap
+//
+//Time complexity : as the two pointers keep moving forward, the time complexity will be O(n)
+//Space Complexity: as we use a hashmap to maintain the frequency, space complexity will be O(n)
+
 public class Solution {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
        
