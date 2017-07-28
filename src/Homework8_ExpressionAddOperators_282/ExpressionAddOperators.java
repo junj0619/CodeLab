@@ -1,3 +1,4 @@
+//https://segmentfault.com/a/1190000003797204
 public class Solution {
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
