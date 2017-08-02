@@ -30,6 +30,10 @@ public class Solution {
     }        
     
     public Result getLargestBSTSubtree(TreeNode node) {
+        //Base condition: 
+        //Means reach leaf.next 
+        //Use start = max, end = min for later parent node pass line:42 comparision.
+        //This is the special handling when find leaf node. 
         if (node == null) return new Result(0, Integer.MAX_VALUE, Integer.MIN_VALUE);
         
         Result left = getLargestBSTSubtree(node.left);
