@@ -34,7 +34,7 @@ public class Solution {
         
         Result left = getLargestBSTSubtree(node.left);
         Result right = getLargestBSTSubtree(node.right);
-        
+        //If left/right sub tree is invalid. then the tree from current node is invalid.
         if (left.size == -1 || right.size == -1 || node.val <= left.end || node.val >= right.start) {
             return new Result(-1, 0, 0);
         }
