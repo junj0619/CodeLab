@@ -17,6 +17,7 @@
  *  2    3
  *      /  \     
  *     4    5  => [2,4,5] false [3] false [1]
+ **/
 public class Solution {
     
     public List<List<Integer>> findLeaves(TreeNode root) {
