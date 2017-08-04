@@ -20,12 +20,12 @@ public class Solution {
           root.left = delete(root.left, key);
         } else if(root.val < key) {
           root.right = delete(root.right, key);
-        } else {           
-           if (root.left == null && root.right == null) { //delete leaf node
-               return null;  
-           } else if (root.left == null)  { //delete node has one child
-               return root.right;
-           } else if (root.right == null) {
+        } else {                                                                          
+           if (root.left == null && root.right == null) { //delete leaf node     //       12
+               return null;                                                      //      /   \
+           } else if (root.left == null)  { //delete node has one child          //     4     20  <- successor
+               return root.right;                                                //    /  \
+           } else if (root.right == null) {                                      //   1    5 <- predecessor 
                return root.left;
            }
             
