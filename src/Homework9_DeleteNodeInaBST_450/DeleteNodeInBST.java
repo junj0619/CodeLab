@@ -24,9 +24,9 @@ public class Solution {
            if (root.left == null && root.right == null) { //delete leaf node     //       12
                return null;                                                      //      /   \
            } else if (root.left == null)  { //delete node has one child          //     4     20  <- successor
-               return root.right;                                                //    /  \
-           } else if (root.right == null) {                                      //   1    5 <- predecessor 
-               return root.left;
+               return root.right;                                                //    /  \     \
+           } else if (root.right == null) {                                      //   1    5    30 
+               return root.left;                                                 //     predecessor 
            }
             
            //delete node has two children
