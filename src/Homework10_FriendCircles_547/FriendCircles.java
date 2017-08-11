@@ -5,17 +5,17 @@ public class Solution {
         public int[] un;
         UnionFind(int size) {
             un = new int[size];
-            for(int i = 0; i < un.length; i++) {   //initial union array: like [0,1,2,3,4,5,6,7,8]
+            for(int i = 0; i < un.length; i++) {   //initial union array: like [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 un[i] = i;
             }
             
         }
         
-       public void union(int i, int j){
-            int parentI = find(i);   
-            int parentJ = find(j);
-            
-            if(parentI != parentJ) {                
+       public void union(int i, int j){  //Union means [0, 1]  set 1 parent to be 0. Or set 0 parent to be 1.
+            int parentI = find(i);       //Then union array will be [0, 0, 2, 3, 4, 5, 6, 7, 8]
+            int parentJ = find(j);       //Union [1,2] since 1's parent is 0 and 2's parent is 2 so they are not equal.
+                                         //Then repeat same process set 2's parent to 0's parent 
+            if(parentI != parentJ) {     //Union array will be [0, 0, 0, 3, 4, 5, 6, 7, 8]           
                 un[parentJ] = parentI;   
             }                                
         }
