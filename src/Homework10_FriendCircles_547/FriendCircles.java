@@ -19,9 +19,9 @@ public class Solution {
                 un[parentJ] = parentI;   
             }                                
         }
-        
-       public int find(int n){
-            while(n != un[n]) {
+                                         //      0, 1, 2, 3, 4, 5, 6, 7, 8
+       public int find(int n){           //Find [0, 0, 0, 3, 3, 4, 6, 7, 8]
+            while(n != un[n]) {          //Ex: find 5's parent. It will be like 5 -> 4 -> 3 then get 3.
                 n = un[n];
             }
             return n;
