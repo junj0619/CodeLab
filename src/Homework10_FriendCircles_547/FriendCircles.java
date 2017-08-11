@@ -5,7 +5,7 @@ public class Solution {
         public int[] un;
         UnionFind(int size) {
             un = new int[size];
-            for(int i = 0; i < un.length; i++) {
+            for(int i = 0; i < un.length; i++) {   //initial union array: like [0,1,2,3,4,5,6,7,8]
                 un[i] = i;
             }
             
