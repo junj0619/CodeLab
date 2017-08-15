@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=IFNibRVgFBo
 public class Solution {
     public int maxCoins(int[] nums) {
         if(nums.length == 0) return 0;
