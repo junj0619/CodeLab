@@ -1,4 +1,3 @@
-
 class Solution {
     public boolean isMatch(String s, String p) {
         char[] str = s.toCharArray();
