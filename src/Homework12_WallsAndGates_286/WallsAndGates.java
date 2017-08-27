@@ -81,3 +81,52 @@ class Solution {
     }
     
 }
+
+
+//Revise version beats:60.27%
+//Reason : no need to keep visited array and calculated min value for each INF node
+//We initiate breadth-first search (BFS) from all gates at the same time.
+//BFS guarantees that we search all rooms of distance d before searching rooms of distance d + 1, 
+//the distance to an empty room must be the shortest.
+class Solution {
+    class Point {
+        int row;
+        int col;
+        
+        Point(int row, int col) {
+            this.row = row;
+            this.col = col;        
+        }
+    }
+    public void wallsAndGates(int[][] rooms) {
+        if (rooms == null || rooms.length == 0) return;
+        int rows = rooms.length;
+        int cols = rooms[0].length;
+        int[] dx = {-1, 1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
+        int INF = Integer.MAX_VALUE;        
+        Deque<Point> queue = new ArrayDeque<>();
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (rooms[i][j] == 0) 
+                    queue.offer(new Point(i, j));            
+            }
+        }
+        
+        while (!queue.isEmpty()) {
+            Point curr = queue.poll();
+            int level = 1;
+            for (int i = 0; i < 4; i++) {
+                int rowIndex = curr.row + dx[i];
+                int colIndex = curr.col + dy[i];
+                
+                if (rowIndex < 0 || rowIndex >= rows || colIndex < 0 || colIndex >= cols || rooms[rowIndex][colIndex] != INF) {
+                    continue;
+                }
+                queue.offer(new Point(rowIndex, colIndex));
+                rooms[rowIndex][colIndex] = rooms[curr.row][curr.col] + 1;
+            }                
+        }                
+    }
+}
