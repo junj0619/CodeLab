@@ -1,3 +1,5 @@
+// 408.Valid Word Abbreviation + 320.Generalized Abbreviation
+
 class Solution {
     
      class Abbre {
@@ -11,11 +13,15 @@ class Solution {
        }
         
     public String minAbbreviation(String target, String[] dictionary) {
+       //Corner case: "usaandchinaarefriends", []   ==> "21"
        if (dictionary == null || dictionary.length == 0) 
            return String.valueOf(target.length());       
         
        List<String> abbrList = generatedAbbrList(target);
         
+       //Each number or letter in the abbreviation is considered length = 1. For example, the abbreviation "a32bc" has length = 4.
+       //If dont sort by abbreviation length the anwser may not be the min.
+       //"aaaaaxaaaaa", ["bbbbbxbbbbb"] ==> Without sort : "9aa" , Expect : "a10"
        List<Abbre> sortAbbrList = sortAbbrList(abbrList);
         
        for (Abbre abbr : sortAbbrList) {
@@ -75,6 +81,7 @@ class Solution {
                 consecutiveOne++;
             } 
             else {
+                //e.g: word ==> w1rd or word ==> w2d
                 if (consecutiveOne != 0) {
                     sb.append(consecutiveOne);
                     consecutiveOne = 0;
@@ -82,7 +89,7 @@ class Solution {
                 sb.append(word.charAt(i));
             }                      
         }
-        
+        //e.g: word ==> 4, or word ==> w3
         if (consecutiveOne != 0) {            
             sb.append(consecutiveOne);
         }
