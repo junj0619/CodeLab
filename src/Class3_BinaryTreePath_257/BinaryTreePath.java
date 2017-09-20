@@ -34,4 +34,14 @@ class Solution {
         if (len > 1 && (String.valueOf(root.val).length() + 2) < len)            
             sb.delete(len - (String.valueOf(root.val).length() + 2), len);
     }
+    
+    //simple version
+     public void helper(TreeNode root, String path, List<String> res) {
+        if (root.left == null && root.right == null)
+            res.add(path + root.val);        
+        if (root.left != null) 
+            helper(root.left, path + root.val + "->", res);
+        if (root.right != null)
+            helper(root.right, path + root.val + "->", res);
+    }
 }
