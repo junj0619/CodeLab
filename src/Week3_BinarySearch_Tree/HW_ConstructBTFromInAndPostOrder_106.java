@@ -7,6 +7,25 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+/*
+ *
+ *       1
+ *     /   \
+ *    3     4
+ *   / \   / \
+ *  5   6 7   8
+ *
+ *  In-Order  :[5, 3, 6, 1, 7, 4, 8]
+ *  Post-Order:[5, 6, 3, 7, 8, 4, 1]
+ *
+ *  Idea: Get root from post order. [1]
+ *        Then search root [1] in inorder arr
+ *        All left tree nodes are in the left of [1] node
+ *        Get left length. Divide tree to left and right in both inorder and postorder arr
+ *        Repeat same logic and return treenode root to previous recursion stack
+ */
+
 class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder == null || postorder == null) return null;
