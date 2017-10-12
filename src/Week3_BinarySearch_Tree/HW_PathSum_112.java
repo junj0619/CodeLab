@@ -6,7 +6,17 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
- */
+ *
+ *
+ * Given the below binary tree and sum = 22,
+ *              5
+ *             / \
+ *            4   8
+ *           /   / \
+ *          11  13  4
+ *         /  \      \
+ *        7    2      1
+*/
 class Solution {
     public boolean hasPathSum(TreeNode root, int sum) {
         if (root == null) return false;
