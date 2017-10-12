@@ -43,7 +43,7 @@
  */
 class Solution {
     //By level traversal and compare. Not need to traversal all the tree node in the best scenario
-    //Compare left tree left vs right tree right && left tree right vs right tree left
+    //Use Queue to compare left tree left vs right tree right && left tree right vs right tree left
     public boolean isSymmetric(TreeNode root) {  
         if (root == null) return true;
         
