@@ -16,8 +16,8 @@ public class BinaryTreeMaxPathSumII {
     public int getMaxSum(TreeNode root) {
             if (root == null) return 0;
 
-            int left = getMaxSum2(root.left);
-            int right = getMaxSum2(root.right);
+            int left = getMaxSum(root.left);
+            int right = getMaxSum(root.right);
 
             return root.val + Math.max(0, Math.max(left, right));
         }
