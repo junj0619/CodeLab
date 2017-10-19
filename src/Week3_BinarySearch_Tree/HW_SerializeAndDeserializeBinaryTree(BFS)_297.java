@@ -6,6 +6,12 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ *  
+ *        1
+ *      /   \
+ *     2     3
+ *          /  \
+ *         4    5
  *
  * Idea : 
  *    Serialize do the BFS level traversal. Then tree become [1,2,3,NULL,NULL,4,5,NULL,NULL,NULL,NULL]
