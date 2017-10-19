@@ -19,7 +19,7 @@
  *    Then iterative and poll element from queue tree meanwhile assign left,right node to the current parent node. 
  *
  *  Will do :
- *     Actually first queue is duplicated word like string array after convert the input string.
+ *     Actually first queue is doing duplicated work like string array after convert the input string.
  *     The queue can be replaced by previous string array. And do the increament index to simulate queue.poll()
  */
 public class Codec {
