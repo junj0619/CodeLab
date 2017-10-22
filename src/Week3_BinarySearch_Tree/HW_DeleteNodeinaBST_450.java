@@ -6,6 +6,16 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ *
+ *
+ *  root = [5,3,6,2,4,null,7]
+ *  key = 2(leaf node), key = 6(single child), key = 3(two children)
+ *
+ *     5
+ *    / \
+ *   3   6
+ *  / \   \
+ * 2   4   7
  */
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
