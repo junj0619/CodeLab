@@ -39,7 +39,7 @@ class Solution {
             for (int i = 0; i < size; i++) {                           
                 root = queue.poll();
                 if (isReverse) 
-                    list.add(0, root.val);
+                    list.add(0, root.val);  //KeyPoint: insert element at the 0 index.
                 else
                     list.add(root.val);
                 
