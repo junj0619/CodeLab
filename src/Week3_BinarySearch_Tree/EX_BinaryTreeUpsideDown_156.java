@@ -51,4 +51,23 @@ class Solution {
         }
         return newRoot;
     }
+    
+    // Space Complexity: O(1)
+    public TreeNode upsideDownBinaryTreeO1(TreeNode root) {
+        TreeNode curr = root;
+        TreeNode next = null;
+        TreeNode pre = null;
+        TreeNode temp = null;
+        
+        while (curr != null) {
+            next = curr.left;
+            curr.left = temp;
+            temp = curr.right;
+            curr.right = pre;
+            
+            pre = curr;
+            curr = next;            
+        }        
+        return pre;        
+    }
 }
