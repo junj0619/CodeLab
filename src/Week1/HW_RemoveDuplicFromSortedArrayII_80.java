@@ -1,4 +1,7 @@
 class Solution {
+    //Input   : [1, 1, 1, 1, 3, 3]
+    //Output  : [1, 1, 3, 1] missing assign value to slow pointer element in else if case.
+    //Expected: [1, 1, 3, 3]
     public int removeDuplicates(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         if (nums.length == 1) return 1;
