@@ -1,5 +1,5 @@
 class Solution {
-//HashMap + MaxHeap
+//HashMap + MaxHeap ==> should use MinHeap because Min Heap only need to maintain K elements inside of n elements.
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> res = new ArrayList<>();
         
