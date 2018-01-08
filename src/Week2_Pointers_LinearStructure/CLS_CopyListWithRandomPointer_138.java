@@ -39,4 +39,45 @@ public class Solution {
         
         return map.get(head);        
     }
+    
+    //Approach 2# In-Place Copy
+    public RandomListNode copyRandomList(RandomListNode head) {
+        
+        //step 1: copy current node in the next postion
+        RandomListNode node = head;
+        while(node != null){
+           RandomListNode copy = new RandomListNode(node.label);
+           RandomListNode next = node.next;
+           node.next = copy;
+           copy.next = next;
+           node = next;
+        }
+        
+        //step 2: link copy random pointer
+        node = head;
+        while(node != null && node.next != null){
+            RandomListNode next = node.next.next;
+            if(node.random != null){       //[1,#] no random. so have to check this case
+                node.next.random = node.random.next;
+            }
+            node = next;
+        }
+        
+        //step 3: rebuild link list to CopyLinkedList and Originial LinkedList
+        RandomListNode dummyHead = new RandomListNode(0);
+        RandomListNode copy = dummyHead;
+        RandomListNode original = head;
+        node = head;
+        while(node != null && node.next != null){
+            RandomListNode next = node.next.next;
+            copy.next = node.next;
+            original.next = next;
+            
+            copy = copy.next;
+            original = original.next;
+            node = next;
+        }
+    
+        return dummyHead.next;
+    }
 }
