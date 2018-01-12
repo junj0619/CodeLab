@@ -19,11 +19,11 @@ class Solution {
                    
                     if (sum > target) {                        
                         mid--;
-                        while (start < mid && nums[mid] == nums[mid + 1]) mid--;
+                        //while (start < mid && nums[mid] == nums[mid + 1]) mid--;
                     }
                     else { 
                         start++;                                            
-                        while (start < mid && nums[start] == nums[start - 1]) start++;
+                        //while (start < mid && nums[start] == nums[start - 1]) start++;
                     }                    
                 }                                    
             }
