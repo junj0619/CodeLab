@@ -11,7 +11,14 @@ class QueueNode {
 }
 
 public class MergeKSortedArrays {
-
+/*
+* Approach : Use MinHeap to find each min element in the sorted arrays.
+* k: numbers of arrays, n: length of array
+* Time Complexity: O(k*n log(k))
+* Access each element once so k*n
+* Each Heapfy take log(k) so k*n log(k)
+* Insert/Remove element in the heap take log(k) time complexity
+*/
 
     public static void main(String[] args) {
         int[][] arr = new int[][]{
