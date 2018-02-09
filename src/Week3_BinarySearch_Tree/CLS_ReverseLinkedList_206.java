@@ -10,7 +10,7 @@ class Solution {
     public ListNode reverseList(ListNode head) {                
         return reverseHelper(null, head);                 
     }
-    //Tail recursion
+    //Approach #1: Tail recursion
     private ListNode reverseHelper(ListNode newHead, ListNode head) {
         if (head == null) return newHead;
         
@@ -19,4 +19,18 @@ class Solution {
         
         return reverseHelper(head, next);        
     }
+    
+    //Approach #2: Non-tail recursion
+    public ListNode reverseList(ListNode head) {        
+        if (head == null || head.next == null)
+            return head;
+        
+        ListNode newHead = reverseList(head.next);
+        
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+    
+
 }
