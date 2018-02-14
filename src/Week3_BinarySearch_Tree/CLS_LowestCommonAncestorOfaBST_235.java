@@ -21,4 +21,24 @@ class Solution {
         else
             return left == null ? right : left;        
     }
+    
+    
+    //Follow up 1: Find LCA of K'Nodes
+    public TreeNode lowestCommonAncestor(TreeNode root, List<TreeNode> nodes) {
+        if (root == null)
+            return root;
+        
+        for (TreeNode node : nodes) {
+            if (node == root) return root;
+        }
+        
+        TreeNode left = lowestCommonAncestor(root.left, nodes);
+        TreeNode right = lowestCommonAncestor(root.right, nodes);
+        
+        if (left != null && right != null)
+            return root;
+        else
+            return left == null ? right : left;        
+    }
+    
 }
