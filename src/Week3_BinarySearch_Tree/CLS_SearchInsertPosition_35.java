@@ -9,27 +9,26 @@ class Solution {
 *
 * Key point: search the next larger number of given target
 */
-    public int searchInsert(int[] nums, int target) {
-        if (nums == null) return 0;
+    public int searchInsert(int[] nums, int target) {     
+        int start = 0;
+        int end = nums.length - 1;
         
-        int len = nums.length;
-        if (target < nums[0]) 
-            return 0;
-        else if (target > nums[len - 1]) 
-            return len;
+        if (target <= nums[0]) 
+            return 0;        
+        else if (target > nums[end])
+            return end + 1;
         else {
-            int start = 0;
-            int end = len - 1;
-            
             while (start < end - 1) {
                 int mid = (start + end) >>> 1;
-                if (target > nums[mid]) 
-                    start = mid;
-                else
+                
+                if (nums[mid] == target) 
+                    return mid;
+                else if (nums[mid] > target) 
                     end = mid;
-            }
-            
-           return (target > nums[start]) ? end : start;
+                else
+                    start = mid;                                
+            }            
         }
+        return end;
     }
 }
