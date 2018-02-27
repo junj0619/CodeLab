@@ -32,11 +32,7 @@ class Solution {
     
     public int getPathSum(TreeNode root, int sum) {
         if(root == null) return 0;
-        
-        int count = 0;
-        if(root.val == sum) count++;
-        count += getPathSum(root.left, sum - root.val);
-        count += getPathSum(root.right, sum - root.val);
-        return count;        
+               
+        return (sum == root.val ? 1 : 0) + getPathSum(root.left, sum - root.val) + getPathSum(root.right, sum - root.val);        
     }
 }
