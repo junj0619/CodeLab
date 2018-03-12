@@ -27,31 +27,26 @@
  */
 
 class Solution {
-    public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder == null || postorder == null) return null;
-        int len =  inorder.length - 1;
-        return helper(inorder, postorder, 0, len, 0, len);
+     public TreeNode buildTree(int[] inorder, int[] postorder) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+        return helper(0, postorder.length - 1, 0, inorder.length - 1, inorder, postorder, map);
     }
     
-    public TreeNode helper(int[] inorder, int[] postorder, int inStart, int inEnd, int postStart, int postEnd) {
-        if (inStart > inEnd) return null;
+    private TreeNode helper(int posStart, int posEnd, int inStart, int inEnd, int[] inorder, int[] postorder, HashMap<Integer, Integer> map) {
+        if (posStart > posEnd || inStart > inEnd) 
+            return null;
         
-        int val = postorder[postEnd];
-        int pos = 0;
-        
-        TreeNode root = new TreeNode(val);
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == val) {                
-                pos = i; 
-                break;                
-            }
-        }
-        
-        int leftSize = pos - inStart;
-        
-        root.left = helper(inorder, postorder, inStart, pos - 1, postStart, postStart + leftSize - 1);
-        root.right = helper(inorder, postorder, pos + 1, inEnd, postStart + leftSize, postEnd - 1);
-        
-        return root;
+        int index = map.get(postorder[posEnd]);        
+     
+        //[1,2,3,4]
+        //[2,3,1,4]
+        TreeNode root = new TreeNode(postorder[posEnd]);
+        int leftLen = index - inStart;
+        root.left = helper(posStart, posStart + leftLen - 1, inStart, index - 1, inorder, postorder, map);
+        root.right = helper(posStart + leftLen, posEnd - 1, index + 1, inEnd, inorder, postorder, map);
+        return root;        
     }
 }
