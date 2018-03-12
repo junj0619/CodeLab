@@ -22,32 +22,25 @@
  *  Only difference is the root that is in the [Start] position of preorder array
  */
 class Solution {
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || inorder == null) return null;
-
-        int len = preorder.length - 1;
-        return helper(preorder, inorder, 0, len, 0, len);        
+     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+        
+        return helper(0, 0, inorder.length, preorder, inorder, map);        
     }
     
-    public TreeNode helper(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd) {
-        if (preStart > preEnd) return null;
-
-        int val = preorder[preStart];
-        int pos = 0;
-
-        TreeNode root = new TreeNode(val);
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == val) {
-                pos = i;
-                break;
-            }
-        }
-
-        int leftSize = pos - inStart;
-
-        root.left = helper(preorder, inorder, preStart + 1, preStart + leftSize, inStart, pos - 1);
-        root.right = helper(preorder, inorder, preStart + leftSize + 1, preEnd, pos + 1, inEnd);
-
-        return root;
+    private TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder, HashMap<Integer, Integer> map) {
+        if (preStart > preorder.length - 1 || inStart > inEnd) 
+            return null;
+        
+        TreeNode node = new TreeNode(preorder[preStart]);        
+        int inOrderIDX = map.get(preorder[preStart]);
+        
+        node.left = helper(preStart + 1, inStart, inOrderIDX - 1, preorder, inorder, map);
+        node.right = helper(preStart + inOrderIDX - inStart + 1, inOrderIDX + 1, inEnd, preorder, inorder, map);
+        return node;
     }
 }
