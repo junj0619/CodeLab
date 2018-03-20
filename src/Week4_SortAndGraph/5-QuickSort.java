@@ -10,28 +10,33 @@ class QuickSort
 */
 
 
-   private int partition(int[] arr, int low, int hi) {
-	    int pivot = arr[hi];
-	    int i = low;
-	    int j = i - 1;
-	    
-	    while (i <= hi) {
-	        if (arr[i] <= pivot) {
-	            j++;
-	            int temp = arr[j];
-	            arr[j] = arr[i];
-	            arr[i] = temp;
-	        }
-	        i++;     
-	    }
-	    return j;
-	}
-
-    void sort(int[] arr, int low, int hi) {
+    private void sort(int[] nums, int low, int hi) {
         if (low >= hi) return;
         
-        int index = partition(arr, low, hi);
-        sort(arr, low, index - 1);
-        sort(arr, index + 1, hi);
+        int index = partition(nums, low, hi);
+        sort(nums, low, index - 1);
+        sort(nums, index + 1, hi);                
     }
+    
+    private int partition(int[] nums, int low, int hi) {
+        int pivot = nums[hi];
+        int j = low - 1;
+        
+        for (int i = low; i < hi; i++) {
+            if (nums[i] <= pivot) {                
+                swap(nums, i, ++j);                        
+            }
+        }        
+        
+        swap(nums, hi, ++j);
+        return j;
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        if (i == j) return;
+        
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;                
+    }  
 }    
