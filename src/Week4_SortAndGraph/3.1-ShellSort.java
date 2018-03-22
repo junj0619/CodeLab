@@ -1,6 +1,7 @@
 /* Java implementation of ShellSort
 *  https://www.geeksforgeeks.org/shellsort/
-*  
+*  https://www.tutorialspoint.com/data_structures_algorithms/shell_sort_algorithm.htm
+*
 * Time Complexity: Time complexity of above implementation of shellsort is O(n2). 
 * In the above implementation gap is reduce by half in every iteration. 
 * There are many other ways to reduce gap which lead to better time complexity. 
