@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+/*
+* Time Complexity: O(n + r)
+* Space Complexity: O(n + r)
+* Stable: YES
+*/
+
 public class BucketSort {
 	private static int SIZE = 30;
 
@@ -14,14 +20,14 @@ public class BucketSort {
 				max = num;
 		}
 
+	    //Initialization
 		ArrayList<ListNode> list = new ArrayList<>();
-    //Initalization
 		for (int i = 0; i < SIZE; i++) {
 			ListNode node = new ListNode(Integer.MAX_VALUE);
 			list.add(node);
 		}
-
-   //Put into bucket
+		
+		//Put into bucket
 		for (int num : nums) {
 			ListNode head = list.get(buildIndex(num, min, max));
 			ListNode dummy = new ListNode(0);
@@ -37,8 +43,8 @@ public class BucketSort {
 			list.set(buildIndex(num, min, max), dummy.next);
 		}
 
+		//Generate result
 		int index = 0;
-    //Generate result
 		for (ListNode node : list) {
 			while (node.val != Integer.MAX_VALUE) {
 				nums[index++] = node.val;
@@ -46,8 +52,8 @@ public class BucketSort {
 			}
 		}
 	}
-
-  //Get bucket Index
+	
+	//Get bucket Index
 	private int buildIndex(int num, int min, int max) {
 		return (num - min) * SIZE / (max - min + 1);
 	}
