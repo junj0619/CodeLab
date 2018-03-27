@@ -34,7 +34,7 @@ public class BucketSort {
 			dummy.next = head;
 			head = dummy;
 
-			while (head.next.val <= num)
+			while (head.next.val <= num)  //  "<=" will make sort stable
 				head = head.next;
 
 			ListNode newNode = new ListNode(num);
