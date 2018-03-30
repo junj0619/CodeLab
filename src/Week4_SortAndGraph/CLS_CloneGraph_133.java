@@ -29,4 +29,35 @@ public class Solution {
         }
         return map.get(node);        
     }
+    
+    
+    
+/** Approach #2: BFS **/    
+    Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+    
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        if (node == null) return node;
+        return clone(node);
+    }
+    
+    private UndirectedGraphNode clone(UndirectedGraphNode node) {
+        
+        Deque<UndirectedGraphNode> queue = new ArrayDeque<>();
+        queue.offer(node);
+        map.put(node, new UndirectedGraphNode(node.label));
+        
+        while (!queue.isEmpty()) {
+            UndirectedGraphNode cur = queue.pollFirst();
+            UndirectedGraphNode copy = map.get(cur);
+            
+            for (UndirectedGraphNode nei : cur.neighbors) {
+                if (map.get(nei) == null) {
+                    queue.offerLast(nei);
+                    map.put(nei, new UndirectedGraphNode(nei.label));
+                }
+                copy.neighbors.add(map.get(nei));
+            }            
+        }
+        return map.get(node);
+    }
 }
