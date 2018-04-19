@@ -8,7 +8,7 @@
  * }
  */
 class Solution {
-   //#1 By Iteration
+   //#1 By Iteration(In-Order Traversal compare pre val with cur)
     public boolean isValidBST(TreeNode root) {
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode pre = null;        
