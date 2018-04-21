@@ -8,8 +8,9 @@
  * }
  */
 class Solution {
-//Approach #1: DFS search each node and all the sub-trees are doing same 
+//Approach #1: DFS(TOP-DOWN) search each node and all the sub-trees are doing same 
 //Time Complexity: O(n^2) = n + (n-1) + (n-2) + (n-3) + (n-4) + .......+ 1
+    
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         int left = getDepth(root.left);
