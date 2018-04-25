@@ -1,35 +1,40 @@
 class Solution {
-    public int[] findOrder(int numCourses, int[][] prerequisites) { 
-        List<Integer> res = new ArrayList<>(numCourses);        
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        int[] res = new int[numCourses];
         List<Integer>[] adjacencyList = new List[numCourses];
         int[] indegree = new int[numCourses];
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         
-        for (int i = 0; i < numCourses; i++) { //Build Node
-            adjacencyList[i] = new ArrayList<>();
+        //Step 1: build node
+        for (int i = 0; i < numCourses; i++) {
+            adjacencyList[i] = new ArrayList<Integer>();
         }
         
+        //Step 2: build edges and indegree
         for (int[] pair : prerequisites) {
-            adjacencyList[pair[1]].add(pair[0]); //Build Edge
-            indegree[pair[0]]++;                 //Build Indegree
+            adjacencyList[pair[1]].add(pair[0]);
+            indegree[pair[0]]++;
         }
         
-        for (int i = 0; i < numCourses; i++) { 
-            if (indegree[i] == 0) {             //Find Start node(s) which have 0 indegree
-                queue.offer(i);                
+        //Step 3: find start point (indegree = 0)
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0) {
+                q.offer(i);
             }
         }
-                
-        while (!queue.isEmpty()) {              //Start traversal and update indegree
-            int preCourse = queue.poll();
-            res.add(preCourse);                 //Add course to the result
-            for (int nextCourse : adjacencyList[preCourse]) {
-                if (--indegree[nextCourse] == 0) {
-                    queue.offer(nextCourse);                  
+        
+        //Step 4: start travesal and eliminate the node
+        int count = 0;
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            res[count++] = node;
+            for (int nei : adjacencyList[node]) {
+                if (--indegree[nei] == 0) {
+                    q.offer(nei);
                 }
-            }            
+            }
         }
         
-        return res.size() == numCourses ? res.stream().mapToInt(i -> i).toArray() : new int[0];
+        return count == numCourses ? res : new int[0];
     }
 }
