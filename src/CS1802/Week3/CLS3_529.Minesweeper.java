@@ -1,44 +1,51 @@
 class Solution {
+    int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1}; //anti-clockwise 8 directions
+    int[] dy = {0, -1, -1, -1, 0, 1, 1, 1};
     int rows = 0;
     int cols = 0;
-    int[] dx = {-1, 1, 0, 0, -1, 1, 1, -1}; //up, down, left, right, top-left, bottom-left, bottom-right, bottom-up
-    int[] dy = {0, 0, -1, 1, -1, -1, 1, 1};
     public char[][] updateBoard(char[][] board, int[] click) {
         rows = board.length;
         cols = board[0].length;
-        int x = click[0];
-        int y = click[1];
-        
+        int x = click[0], y = click[1];    
+    
         dfs(board, x, y);
-        return board;       
+        return board;
     }
     
-    private void dfs(char[][] board, int x, int y) {                 
-         if (board[x][y] == 'M') {
-             board[x][y] = 'X';
-             return;
-         }
+    private void dfs(char[][] board, int x, int y) {
+        if (board[x][y] == 'M') {
+            board[x][y] = 'X';
+            return;
+        }
         
         int mineCount = 0;
         for (int i = 0; i < 8; i++) {
-            int newX = dx[i] + x;
-            int newY = dy[i] + y;  
-            if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && board[newX][newY] == 'M') {                    
+            int newX = x + dx[i];
+            int newY = y + dy[i];
+            if (!isOutOfBound(newX, newY) && board[newX][newY] == 'M') {
                 mineCount++;
             }
         }
         
         if (mineCount == 0) {
             board[x][y] = 'B';
-            for (int i = 0; i < 8; i++) {                                
-                int newX = dx[i] + x;
-                int newY = dy[i] + y; 
-                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && board[newX][newY] == 'E') {                
+            for (int i = 0; i < 8; i++) {
+                int newX = x + dx[i];
+                int newY = y + dy[i];
+                if (!isOutOfBound(newX, newY) && board[newX][newY] == 'E') {
                     dfs(board, newX, newY);
-                }                
-            }            
+                }
+            }
         } else {
             board[x][y] = (char)('0' + mineCount);
-        }                
+        }
+    }
+    
+    private boolean isOutOfBound(int x, int y) {
+        if (x < 0 || x > rows - 1 || y < 0 || y > cols - 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
