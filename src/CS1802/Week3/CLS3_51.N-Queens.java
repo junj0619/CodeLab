@@ -1,4 +1,5 @@
 class Solution {
+    //BackTracking #4
     List<List<String>> res = null;
     public List<List<String>> solveNQueens(int n) {
         res = new ArrayList<>();
@@ -16,7 +17,7 @@ class Solution {
         }
         
         for (int i = 0; i < queens.length; i++) {
-            queens[curRow] = i;
+            queens[curRow] = i;            //BackTracking <==
             if (isValid(queens, curRow)) {
                 dfs(curRow + 1, queens);
             }
