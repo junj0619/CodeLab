@@ -21,4 +21,24 @@ class Solution {
         memo[pos] = Math.max(selected, unselected);
         return memo[pos];
     }
+    
+    //Bottom-up
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        
+        int n = nums.length;
+        int[] r = new int[n + 1];  //rob 
+        int[] nr = new int[n + 1]; //not rob
+        
+        r[1] = nums[0];
+        nr[1] = 0;
+        
+        for (int i = 2; i <= n; i++) {
+            r[i] = nr[i - 1] + nums[i - 1];
+            nr[i] = Math.max(r[i - 1], nr[i - 1]);
+        }
+        
+        return Math.max(r[n], nr[n]);
+    }
+
 }
