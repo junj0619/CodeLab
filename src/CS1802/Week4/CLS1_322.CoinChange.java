@@ -1,4 +1,5 @@
 class Solution {
+    //Bottom-Up
     public int coinChange(int[] coins, int amount) {
         int[] memo = new int[amount + 1];
         
