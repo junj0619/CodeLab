@@ -1,3 +1,8 @@
+/*
+* Cut given string in two parts. If we know first part is composition of wordDict then we just need to check second part is the word from dict.
+* dp[0] means empty string
+* dp[i] = true means from 0 to i positon is compostion of wordDict. Otherwise not a compostion.
+*/
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
         
