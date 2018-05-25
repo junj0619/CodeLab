@@ -3,8 +3,7 @@ class Solution {
         if (words1.length != words2.length) return false;
         
         int len = words1.length;
-        HashMap<String, HashSet<String>> adjacencylist = new HashMap<>();
-        Set<String> visited = new HashSet<>();
+        HashMap<String, HashSet<String>> adjacencylist = new HashMap<>();       
         
         for (String[] pair : pairs) {
             addToMap(adjacencylist, pair[0], pair[1]);
