@@ -51,3 +51,29 @@ class Solution {
         return set.size();        
     }
 }
+
+//DFS
+class Solution {
+    public int findCircleNum(int[][] M) {
+        int circle = 0;
+        int len = M.length;
+        int[] visited = new int[len];
+        
+        for (int i = 0; i < M.length; i++) {
+            if (visited[i] == 0) {               
+                dfs(i, M, visited);
+                circle++;
+            }
+        }
+        return circle;
+    }
+    
+    private void dfs(int i, int[][] M, int[] visited){
+        visited[i] = 1;
+        for (int j = 0; j < M.length; j++) {
+            if (M[i][j] == 1 && visited[j] == 0) {
+                dfs(j, M, visited);
+            }
+        }
+    }
+}
