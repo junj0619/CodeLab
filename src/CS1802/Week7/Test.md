@@ -28,5 +28,5 @@ This question is smailer to House Robber I. Only difference is that the houses i
 
 In this way we can see the answer must be in one of these sub problems. Meanwhile we remove the circle constraint. Rest of sub problems will be same as House Robber I. We can maintain a memorization array to save maximum robber value of current house (1 to current house maximum robber value). Then after fill up all the house, the maximum robber solution value in the last element of memorization. Following example explain the fill up process.  
 
-**Time Complexity: O(N)** use Rob1 twice each call will be O(N) time complexity overall 2N = N.
+**Time Complexity: O(N)** use Rob1 twice each call will be O(N) time complexity overall 2N = N.  
 **Space Complexity: O(N)** create two DP arrays to save calculated solution.   
