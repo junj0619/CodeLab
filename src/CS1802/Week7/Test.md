@@ -20,7 +20,7 @@ Given a list of non-negative integers representing the amount of money of each h
 </pre>
 
 
-<h2>Thinking</h2>
+<h3>Thinking</h3>
 
 This question is smailer to House Robber I. Only difference is that the houses in House Robber II are in the circle which means we can not select both **first and last** houses at the same time. We use same idea to analyze the question. Let’s say we have n houses.  
 * If we select 1st house then the max robber value in 1 to n - 1.
