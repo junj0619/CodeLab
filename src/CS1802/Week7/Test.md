@@ -30,4 +30,4 @@ In this way we can see the answer must be in one of these sub problems. Meanwhil
 
 **Time Complexity: O(N)** use Rob1 twice each call will be O(N) time complexity overall 2N = N.  
 **Space Complexity: O(N)** create two DP arrays to save calculated solution.   
-![](CodeLab/src/CS1802/Images/Rob2.jpg)
+![Rob2](https://github.com/junj0619/CodeLab/blob/master/src/CS1802/Images/Rob2.jpg)
