@@ -33,7 +33,7 @@ In this way we can see the answer must be in one of these sub problems. Meanwhil
 
 ![Rob2](https://github.com/junj0619/CodeLab/blob/master/src/CS1802/Images/Rob2.jpg)
 
-<h3>Code</h3>
+<h2>Code</h2>
 
 ```java
 class Solution {
@@ -59,3 +59,4 @@ class Solution {
     }
 }
 
+<h2>Conclusion</h2>
