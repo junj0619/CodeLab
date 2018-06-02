@@ -1,0 +1,108 @@
+<h2>737. Sentence Similarity II</h2>
+<h3>Question</h3>
+
+Given two sentences **words1, words2** (each represented as an array of strings), and a list of similar word pairs pairs, determine if two sentences are similar.
+
+For example, **words1 = ["great", "acting", "skills"]** and **words2 = ["fine", "drama", "talent"]** are similar,   if the similar word pairs are **pairs = [["great", "good"], ["fine", "good"], ["acting","drama"], ["skills","talent"]]**.
+
+Note that the similarity relation **is** transitive. For example, if "great" and "good" are similar, and "fine" and "good" are similar, then "great" and "fine" **are similar**.
+
+Similarity is also symmetric. For example, "great" and "fine" being similar is the same as "fine" and "great" being similar.
+
+Also, a word is always similar with itself. For example, the sentences **words1 = ["great"], words2 = ["great"], pairs = []** are similar, even though there are no specified similar word pairs.
+
+Finally, sentences can only be similar if they have the same number of words. So a sentence like **words1 = ["great"]** can never be similar to **words2 = ["doubleplus","good"]**.
+
+**Note:**
+
+* The length of words1 and words2 will not exceed 1000.
+* The length of pairs will not exceed 2000.
+* The length of each pairs[i] will be 2.
+* The length of each words[i] and pairs[i][j] will be in the range [1, 20].
+
+<h2>Thinking</h2>
+
+After go though the question and example we can see we try to match each word from words1 to words2. And each word may got similartiy word and the similarity relation is transitive. (A = B = C means A = C)  
+
+Primality idea is using DFS that traverse the adjacency list of given word and see if there is way to reach word2 from word1.  
+During the DFS process we may do some unnecessary traversal if each level of adjacency list is big.  Since we clear we **A = B = C** means **A = C, A = B** so we could consider **A, B and C in the same set**.  
+
+In this way thinking we could use Union Find to solve this problem with more efficiency way.  We can try to set up all possible sets base on given paris and each elements in the set must have same parent.  
+If word1 has same parent of word2 means they are similar word otherwise not similar.  
+
+
+
+
+<h3>Complexity Analysis</h3>
+
+**Time Complexity:**  
+**Space Complexity:** O(P), 2 * size of pairs
+
+<h2>Code</h2>
+<h3>Union Find<h3>
+
+```java
+class UnionFind {
+    int[] uf;
+    public UnionFind(int size) {
+        uf = new int[size];
+        for (int i = 0; i < size; i++) {
+            uf[i] = i;
+        }
+    }
+
+    public void union(int a, int b) {
+        int parentA = find(a);
+        int parentB = find(b);
+        uf[parentB] = parentA;
+    }
+
+    public int find(int index) {
+        while (uf[index] != index) {
+            index = uf[index];
+        }
+        return index;
+    }
+}    
+```        
+
+```java
+class Solution {    
+    public boolean areSentencesSimilarTwo(String[] words1, String[] words2, String[][] pairs) {
+        if (words1.length != words2.length) return false;
+        
+        int len = pairs.length;        
+        int[] count = new int[1];
+        UnionFind uf = new UnionFind(len * 2);
+        HashMap<String, Integer> map = new HashMap<>(); //Key: word in pairs, Val: unique index for UnionFind           
+        for (int i = 0; i < len; i++) {                 //Step 1: Prepare UnionFind
+            addToMap(map, pairs[i][0], count);
+            addToMap(map, pairs[i][1], count);
+        }
+        
+        for (int j = 0; j < len; j++) {                 //Step 2: Union Pairs
+            uf.union(map.get(pairs[j][0]), map.get(pairs[j][1]));
+        }
+        
+        for (int k = 0; k < words1.length; k++) {       //Step 3: Find Parent and Compare 
+            String word1 = words1[k];
+            String word2 = words2[k];
+            if (word1.equals(word2))
+                continue;
+            if (!map.containsKey(word1) || !map.containsKey(word2) || uf.find(map.get(word1)) != uf.find(map.get(word2))){
+                return false;
+            }                        
+        }
+        return true;        
+    }
+    
+    private void addToMap(Map<String, Integer> map, String word, int[] count) {
+        if (!map.containsKey(word)) {
+            map.put(word, count[0]++);
+        }
+    }      
+}
+```
+<h3>DFS</h3>
+
+<h2>Conclusion</h2>
