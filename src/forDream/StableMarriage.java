@@ -3,8 +3,8 @@ import java.util.*;
 public class StableMarriageProblem {
 
     public static void main(String[] args) {
-        int[][] males = new int[][] {{2, 3, 1, 4}, {1,2,3,4}, {2,1,3,4}, {1,4,2,3}};
-        int[][] females = new int[][] {{1,2,3,4}, {4,3,2,1}, {2,3,4,1}, {4,1,2,3}};
+        int[][] males = new int[][]{{2, 3, 1, 4}, {1, 2, 3, 4}, {2, 1, 3, 4}, {1, 4, 2, 3}};
+        int[][] females = new int[][]{{1, 2, 3, 4}, {4, 3, 2, 1}, {2, 3, 4, 1}, {4, 1, 2, 3}};
         List<String> matching = getPairs(males, females);
 
         for (String m : matching) {
@@ -63,9 +63,9 @@ public class StableMarriageProblem {
             }
         }
 
-       for (int f = 1; f < len + 1; f++) {
-           pairs.add(f + " -> " + femaleMatch[f]);
-       }
+        for (int f = 1; f < len + 1; f++) {
+            pairs.add(f + " -> " + femaleMatch[f]);
+        }
 
         return pairs;
     }
