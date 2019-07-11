@@ -11,8 +11,11 @@ ex: f(7) = 13
 
 ```java
 public int fib(n) {
+    if (n == 0) return 0;
+    
     int[] fb = new int[n + 1];
     fb[1] = 1, fb[2] = 1;
+    
     return fib(n, fb);
 }
 
