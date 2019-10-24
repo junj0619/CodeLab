@@ -1,0 +1,27 @@
+## 74. Search a 2D Matrix
+
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0) return false;
+        
+        int rows = matrix.length, cols = matrix[0].length;
+        int low = 0, hi = rows * cols - 1;
+        
+        while (low <= hi) {
+            int mid = (hi - low) / 2 + low;
+            int r = mid / cols;
+            int c = mid % cols;
+            int val = matrix[r][c];
+            
+            
+            if (val == target) return true;
+            else if (val > target) hi = mid - 1;
+            else low = mid + 1;
+        }
+        
+        return false;
+    }
+}
+```
