@@ -1,0 +1,27 @@
+## 378. Kth Smallest Element in a Sorted Matrix
+
+Binary Search
+
+```java
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        int n = matrix.length;
+        int s = matrix[0][0], e = matrix[n - 1][n - 1];
+        int ct = 0;     
+        while (s < e) {
+            int mid = (e - s) / 2 + s;
+            ct = 0;
+            int j = n - 1;
+            for (int i = 0; i < n; i++) {
+                while (j >= 0 && matrix[i][j] > mid) j--;
+                ct += (j + 1);
+            }
+            
+            if (ct >= k) e = mid;
+            else s = mid + 1;            
+        }
+        
+        return s;
+    }
+}
+```
